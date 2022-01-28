@@ -1,0 +1,34 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.30114.105
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AppWithPlugin", "AppWithPlugin\AppWithPlugin.csproj", "{A5024C4B-5EAB-4601-A57B-1485D5138EDD}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PluginBase", "PluginBase\PluginBase.csproj", "{D4903667-F307-47B8-B42C-2D8791982A76}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "HelloPlugin", "HelloPlugin\HelloPlugin.csproj", "{0C55B51D-2089-4CE7-9357-EE333DFAF110}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{A5024C4B-5EAB-4601-A57B-1485D5138EDD}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{A5024C4B-5EAB-4601-A57B-1485D5138EDD}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{A5024C4B-5EAB-4601-A57B-1485D5138EDD}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{A5024C4B-5EAB-4601-A57B-1485D5138EDD}.Release|Any CPU.Build.0 = Release|Any CPU
+		{D4903667-F307-47B8-B42C-2D8791982A76}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{D4903667-F307-47B8-B42C-2D8791982A76}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{D4903667-F307-47B8-B42C-2D8791982A76}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{D4903667-F307-47B8-B42C-2D8791982A76}.Release|Any CPU.Build.0 = Release|Any CPU
+		{0C55B51D-2089-4CE7-9357-EE333DFAF110}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{0C55B51D-2089-4CE7-9357-EE333DFAF110}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{0C55B51D-2089-4CE7-9357-EE333DFAF110}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{0C55B51D-2089-4CE7-9357-EE333DFAF110}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+EndGlobal
