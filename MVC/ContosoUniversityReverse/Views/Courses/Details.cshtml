@@ -1,0 +1,19 @@
+@model ContosoUniversityReverse.Models.Course
+@{
+    ViewData["Title"] = "Course details";
+}
+
+<h1>Course details</h1>
+
+<dl class="row">
+    <dt class="col-md-2">@Html.DisplayNameFor(item => Model.CourseId)</dt>
+    <dd class="col-md-10">@Html.DisplayFor(item => Model.CourseId)</dd>
+    <dt class="col-md-2">@Html.DisplayNameFor(item => Model.Title)</dt>
+    <dd class="col-md-10">@Html.DisplayFor(item => Model.Title)</dd>
+    <dt class="col-md-2">@Html.DisplayNameFor(item => Model.Department.Name)</dt>
+    <dd class="col-md-10">@Html.DisplayFor(item => Model.Department.Name)</dd>
+</dl>
+
+<p>
+    <a asp-action="Index" class="btn btn-light">Back to list</a>
+</p>

@@ -1,0 +1,41 @@
+@model ContosoUniversityReverse.Models.Course
+
+@{
+    ViewData["Title"] = "Create course";
+}
+
+<h1>New course</h1>
+
+<div class="row">
+    <div class="col-md-4">
+        <form asp-action="Create">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <div class="form-group">
+                <label asp-for="CourseId" class="control-label"></label>
+                <input asp-for="CourseId" class="form-control" />
+                <span asp-validation-for="CourseId" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Title" class="control-label"></label>
+                <input asp-for="Title" class="form-control" />
+                <span asp-validation-for="Title" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="DepartmentId" class="control-label"></label>
+                <select asp-for="DepartmentId" asp-items="@ViewBag.DepartmentID" class="form-control">
+                    <option value="">-- Select department -- </option>
+                </select>
+                <span asp-validation-for="DepartmentId" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Create" class="btn btn-primary" /> |
+                <a asp-action="Index" class="btn btn-light">Back to list</a>
+            </div>
+        </form>
+    </div>
+</div>
+
+@section Scripts
+{
+@{await Html.RenderPartialAsync("_ValidationScripsPartial");}
+}

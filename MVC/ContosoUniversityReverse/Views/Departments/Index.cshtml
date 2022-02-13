@@ -1,0 +1,67 @@
+@model IEnumerable<ContosoUniversityReverse.Models.Department>
+@{
+    ViewData["Title"] = "Departments";
+}
+
+<h1>Departments</h1>
+
+<p>
+    <a asp-action="Create" class="btn btn-light">Create new</a>
+</p>
+
+<form asp-action="Index" method="get" class="row">
+    <div class="col-auto">
+        <input type="text" name="searchText" class="form-control" placeholder="Enter text to search"
+            value="@ViewData["CurrentFilter"]" />
+    </div>
+    <div class="col-auto">
+        <input type="submit" value="Search" class="btn btn-primary" />
+    </div>
+    <div class="col-auto">
+        <a asp-action="Index" class="btn btn-secondary">Back to full list</a>
+    </div>
+</form>
+
+<hr />
+
+@{
+    string sortName = ViewData["CurrentOrder"].ToString() == "Name" ? "Name_desc" : "";
+    string sortBudget = ViewData["CurrentOrder"].ToString() == "Budget" ? "Budget_desc" : "Budget";
+    string sortStartDate = ViewData["CurrentOrder"].ToString() == "StartDate" ? "StartDate_desc" : "StartDate";
+    string sortInstructor = ViewData["CurrentOrder"].ToString() == "Instructor" ? "Instructor_desc" :
+    "Instructor";
+}
+
+<table class="table">
+    <thead>
+        <tr>
+            <th><a asp-action="Index" asp-route-searchText="@ViewData["CurrentFilter"]"
+                    asp-route-sortOrder="@sortName">@Html.DisplayNameFor(item => item.Name)</a></th>
+            <th><a asp-action="Index" asp-route-searchText="@ViewData["CurrentFilter"]"
+                    asp-route-sortOrder="@sortBudget">@Html.DisplayNameFor(item => item.Budget)</a></th>
+            <th><a asp-action="Index" asp-route-searchText="@ViewData["CurrentFilter"]"
+                    asp-route-sortOrder="@sortStartDate">@Html.DisplayNameFor(item => item.StartDate)</a></th>
+            <th><a asp-action="Index" asp-route-searchText="@ViewData["CurrentFilter"]"
+                    asp-route-sortOrder="@sortInstructor">@Html.DisplayNameFor(item => item.Instructor.FullName)</a></th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>@Html.DisplayFor(modelItem => item.Name)</td>
+                <td>@Html.DisplayFor(modelItem => item.Budget)</td>
+                <td>@Html.DisplayFor(modelItem => item.StartDate)</td>
+                <td>@Html.DisplayFor(modelItem => item.Instructor.FullName)</td>
+                <td>
+                    <a asp-action="Edit" asp-route-id="@item.DepartmentId">Edit</a> |
+                    <a asp-action="Details" asp-route-id="@item.DepartmentId">Details</a> |
+                    <a asp-action="Delete" asp-route-id="@item.DepartmentId">Delete</a>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>
+
+<partial name="_IndexPaginationPartial"/>

@@ -1,0 +1,33 @@
+@model ContosoUniversityReverse.Models.Student
+
+<dl class="row">
+    <dt class="col-sm-2">@Html.DisplayNameFor(item => item.Id)</dt>
+    <dd class="col-sm-10">@Html.DisplayFor(item => item.Id)</dd>
+    <dt class="col-sm-2">@Html.DisplayNameFor(item => item.LastName)</dt>
+    <dd class="col-sm-10">@Html.DisplayFor(item => item.LastName)</dd>
+    <dt class="col-sm-2">@Html.DisplayNameFor(item => item.FirstName)</dt>
+    <dd class="col-sm-10">@Html.DisplayFor(item => item.FirstName)</dd>
+    <dt class="col-sm-2">@Html.DisplayNameFor(item => item.EnrollmentDate)</dt>
+    <dd class="col-sm-10">@Html.DisplayFor(item => item.EnrollmentDate)</dd>
+    @if (Model.Enrollments != null && Model.Enrollments.Count > 0)
+    {
+        <dt class="col-sm-2">@Html.DisplayNameFor(item => item.Enrollments)</dt>
+        <dd class="col-sm-10">
+            <table class="table">
+                <tr>
+                    <th>Number</th>
+                    <th>Title</th>
+                    <th>Grade</th>
+                </tr>
+                @foreach (var item in Model.Enrollments)
+                {
+                    <tr>
+                        <td>@Html.DisplayFor(modelItem => item.Course.CourseId)</td>
+                        <td>@Html.DisplayFor(modelItem => item.Course.Title)</td>
+                        <td>@Html.DisplayFor(modelItem => item.Grade)</td>
+                    </tr>
+                }
+            </table>
+        </dd>
+    }
+</dl>

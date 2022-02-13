@@ -1,0 +1,16 @@
+@model ContosoUniversityReverse.Models.Student
+
+@{
+    ViewData["Title"] = "Student";
+}
+
+<h2>Delete student</h2>
+
+<partial name="_StudentDetail"/>
+
+<form asp-action="Delete">
+    <input type="hidden" name="id" value="@Model.Id">
+    <input type="submit" value="Delete" class="btn btn-danger"/> |
+    <a asp-action="Index">Back to list</a>
+</form>
+

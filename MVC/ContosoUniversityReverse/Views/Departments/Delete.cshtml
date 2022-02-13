@@ -1,0 +1,29 @@
+@model ContosoUniversityReverse.Models.Department
+@{
+    ViewData["Title"] = "Delete Department";
+}
+
+<h1>Delete this Department?</h1>
+
+<p class="text-danger">@ViewData["ErrorMessage"]</p>
+
+<div class="row">
+    <dl>
+        <dt class="col-md-2">@Html.DisplayNameFor(item => Model.DepartmentId)</dt>
+        <dd class="col-md-10">@Html.DisplayFor(item => Model.DepartmentId)</dd>
+        <dt class="col-md-2">@Html.DisplayNameFor(item => Model.Name)</dt>
+        <dd class="col-md-10">@Html.DisplayFor(item => Model.Name)</dd>
+        <dt class="col-md-2">@Html.DisplayNameFor(item => Model.Budget)</dt>
+        <dd class="col-md-10">@Html.DisplayFor(item => Model.Budget)</dd>
+        <dt class="col-md-2">@Html.DisplayNameFor(item => Model.StartDate)</dt>
+        <dd class="col-md-10">@Html.DisplayFor(item => Model.StartDate)</dd>
+        <dt class="col-md-2">@Html.DisplayNameFor(item => Model.Instructor.LastName)</dt>
+        <dd class="col-md-10">@Html.DisplayFor(item => Model.Instructor.LastName)</dd>
+    </dl>
+</div>
+
+<form asp-action="Delete" method="post">
+    <input type="hidden" name="id" value="@Model.DepartmentId">
+    <input type="submit" value="Delete" class="btn btn-danger">
+    <a asp-action="Index" class="btn btn-light">Back to list</a>
+</form>

@@ -1,0 +1,43 @@
+@using ContosoUniversityReverse.Models.ViewModels
+@model ICollection<EnrollmentDateGroup>
+
+@{
+    ViewData["Title"] = "Enrollment statistics";
+}
+
+<h1>Enrollment statistics</h1>
+
+@{
+    const int maxCols = 10;
+    var displayRows = new List<List<EnrollmentDateGroup>>();
+    int col = 0;
+    foreach (var item in Model)
+    {
+        if (col++ % maxCols == 0)
+        {
+            displayRows.Add(new List<EnrollmentDateGroup>());
+        }
+        var currentRow = displayRows.Last();
+        currentRow.Add(item);
+    }
+}
+
+@foreach (var row in displayRows)
+{
+    <table class="table">
+        <tr>
+            <th>Year</th>
+            @foreach (var item in row)
+            {
+                <td class="text-center">@Html.DisplayFor(modelItem => item.Year)</td>
+            }
+        </tr>
+        <tr>
+            <th>Students</th>
+            @foreach (var item in row)
+            {
+                <td class="text-center">@Html.DisplayFor(modelItem => item.StudentCount)</td>
+            }
+        </tr>
+    </table>
+}

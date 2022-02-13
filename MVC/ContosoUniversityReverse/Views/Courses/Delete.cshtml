@@ -1,0 +1,25 @@
+@model ContosoUniversityReverse.Models.Course
+@{
+    ViewData["Title"] = "Delete course";
+}
+
+<h1>Delete this course?</h1>
+
+<p class="text-danger">@ViewData["ErrorMessage"]</p>
+
+<div class="row">
+    <dl>
+        <dt class="col-md-2">@Html.DisplayNameFor(item => Model.CourseId)</dt>
+        <dd class="col-md-10">@Html.DisplayFor(item => Model.CourseId)</dd>
+        <dt class="col-md-2">@Html.DisplayNameFor(item => Model.Title)</dt>
+        <dd class="col-md-10">@Html.DisplayFor(item => Model.Title)</dd>
+        <dt class="col-md-2">@Html.DisplayNameFor(item => Model.Department.Name)</dt>
+        <dd class="col-md-10">@Html.DisplayFor(item => Model.Department.Name)</dd>
+    </dl>
+</div>
+
+<form asp-action="Delete" method="post">
+    <input type="hidden" name="id" value="@Model.CourseId">
+    <input type="submit" value="Delete" class="btn btn-danger">
+    <a asp-action="Index" class="btn btn-light">Back to list</a>
+</form>

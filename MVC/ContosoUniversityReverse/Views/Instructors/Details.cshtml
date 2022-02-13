@@ -1,0 +1,33 @@
+@model ContosoUniversityReverse.Models.Instructor
+@{
+    ViewData["Title"] = "Instructor details";
+}
+
+<h1>Instructor details</h1>
+
+<dl class="row">
+    <dt class="col-md-2">@Html.DisplayNameFor(item => Model.Id)</dt>
+    <dd class="col-md-10">@Html.DisplayFor(item => Model.Id)</dd>
+    <dt class="col-md-2">@Html.DisplayNameFor(item => Model.FirstName)</dt>
+    <dd class="col-md-10">@Html.DisplayFor(item => Model.FirstName)</dd>
+    <dt class="col-md-2">@Html.DisplayNameFor(item => Model.LastName)</dt>
+    <dd class="col-md-10">@Html.DisplayFor(item => Model.LastName)</dd>
+    <dt class="col-md-2">@Html.DisplayNameFor(item => Model.HireDate)</dt>
+    <dd class="col-md-10">@Html.DisplayFor(item => Model.HireDate)</dd>
+    <dt class="col-md-2">@Html.DisplayNameFor(item => Model.OfficeAssignment.Location)</dt>
+    <dd class="col-md-10">@Html.DisplayFor(item => Model.OfficeAssignment.Location)</dd>
+    <dt class="col-md-2">@Html.DisplayNameFor(item => Model.Courses)</dt>
+    <dd class="col-md-10">
+        @foreach (var course in Model.Courses)
+        {
+            @Html.DisplayFor(modelItem => course.CourseId)
+            @:
+            @Html.DisplayFor(modelItem => course.Title)
+            <br />
+        }
+    </dd>
+</dl>
+
+<p>
+    <a asp-action="Index" class="btn btn-light">Back to list</a>
+</p>

@@ -1,0 +1,62 @@
+@model IEnumerable<ContosoUniversityReverse.Models.Student>
+@{
+    ViewData["Title"] = "Students";
+}
+
+<h2>Students</h2>
+
+<p>
+    <a asp-action="Create">Create new</a>
+</p>
+
+<form asp-action="Index" method="get" class="row">
+    <div class="col-auto">
+        <input type="text" name="searchText" class="form-control" placeholder="Enter text to search"
+            value="@ViewData["CurrentFilter"]" />
+    </div>
+    <div class="col-auto">
+        <input type="submit" value="Search" class="btn btn-primary" />
+    </div>
+    <div class="col-auto">
+        <a asp-action="Index" class="btn btn-secondary">Back to full list</a>
+    </div>
+</form>
+
+<hr />
+
+@{
+    string sortLastName = ViewData["CurrentOrder"].ToString() == "LastName" ? "LastName_desc" : "";
+    string sortFirstName = ViewData["CurrentOrder"].ToString() == "FirstName" ? "FirstName_desc" : "FirstName";
+    string sortEnrollmentDate = ViewData["CurrentOrder"].ToString() == "EnrollmentDate" ? "EnrollmentDate_desc" :
+    "EnrollmentDate";
+}
+
+<table class="table">
+
+    <tr>
+        <th><a asp-action="Index" asp-route-searchText="@ViewData["CurrentFilter"]"
+                asp-route-sortOrder="@sortLastName">@Html.DisplayNameFor(item => item.LastName)</a></th>
+        <th><a asp-action="Index" asp-route-searchText="@ViewData["CurrentFilter"]"
+                asp-route-sortOrder="@sortFirstName">@Html.DisplayNameFor(item => item.FirstName)</a></th>
+        <th><a asp-action="Index" asp-route-searchText="@ViewData["CurrentFilter"]"
+                asp-route-sortOrder="@sortEnrollmentDate">@Html.DisplayNameFor(item => item.EnrollmentDate)</a></th>
+        <th></th>
+    </tr>
+
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>@Html.DisplayFor(modelItem => item.LastName)</td>
+            <td>@Html.DisplayFor(modelItem => item.FirstName)</td>
+            <td>@Html.DisplayFor(modelItem => item.EnrollmentDate)</td>
+            <td>
+                <a asp-action="Edit" asp-route-id="@item.Id">Edit</a> |
+                <a asp-action="Details" asp-route-id="@item.Id">Details</a> |
+                <a asp-action="Delete" asp-route-id="@item.Id">Delete</a>
+            </td>
+        </tr>
+    }
+
+</table>
+
+<partial name="_IndexPaginationPartial"/>
